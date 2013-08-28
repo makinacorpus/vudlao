@@ -1,0 +1,297 @@
+@green: #b1ca00;
+
+/* FIX FOUNDATION */
+.row {
+  max-width: 100%;
+}
+
+/* HEADER */
+#header {
+  padding-top: 0.5em;
+
+  #logo {
+    margin-top: 0.2em;
+  }
+  .tagline {
+    font-size: 1.4em;
+    margin-bottom: 0.2em;
+  }
+}
+#search {
+  background-color: @green;
+  padding-top: 0.6em;
+  position: relative;
+
+  #search-label {
+    label {
+      color: black;
+      font-weight: bold;
+      position: absolute;
+      bottom: 0;
+      left: 3em;
+      margin: 0;
+    }
+    img {
+      float: left;
+    }
+  }
+  #search-input {
+    font-weight: bold;
+  }
+  #zero-results {
+    position: absolute;
+    top: 0.5em;
+    right: 1.5em;
+    color: red;
+    display: none;
+  }
+  .show-choices {
+    top: auto;
+  }
+
+  #search-button {
+    background-color: black;
+    border: 0;
+    i {
+      color: yellow;
+    }
+  }
+
+  #search-address.search-no-result {
+    #zero-results {
+      display: block;
+    }
+    #search-input {
+      color: red;
+    }
+  }
+}
+/* MAP */
+.map-body { 
+    margin:0;
+    padding:0;
+    position: static;
+}
+.map-full{
+  position:absolute;
+  top: 12.7em;
+  bottom: 5em;
+  width: 100%;
+}
+.map-dev {
+  .map-full{
+    top: 14.7em;
+  }
+  .map-hidden {
+    display: none;
+  }
+  .map-right {
+    z-index: 1;
+    position:absolute;
+    //top: 12.7em;
+    top: 14.7em;
+    bottom: 5em;
+    right:-50%;
+    width: 100%;
+    .leaflet-control-attribution {
+      display: none;
+    }
+  }
+}
+
+.leaflet-fullscreen {
+  z-index: 1;
+}
+.leaflet-control-zoom a {
+  width: 32px;
+  height: 32px;
+  font-size: 150%;
+  line-height: 1.8em;
+}
+.leaflet-bottom.leaflet-left {
+  .leaflet-control, .leaflet-social-control {
+    float: left;
+    clear: none;
+    margin-bottom: 0.2em;
+  }
+}
+.leaflet-bar-part-single {
+  -webkit-border-radius: 4px;
+          border-radius: 4px;
+}
+
+.leaflet-control-embed a, .leaflet-social-control a, .leaflet-print-control a {
+    margin: 0 0.5em;
+    padding: 0 0.2em;
+    font-size: 200%;
+    color: black;
+}
+.leaflet-control-scale {
+  margin-top: 1.5em;
+}
+.leaflet-social-control a.leaflet-social-control-facebook {
+  padding: 0 0.4em;
+}
+
+.leaflet-left .leaflet-control {
+  margin-left: 12px;
+}
+
+.leaflet-bottom.leaflet-right {
+  .leaflet-control {
+    float: left;
+    clear: none;
+    margin: 0 0 0.2em 1em;
+    span {
+      margin-left: 0.5em;
+    }
+  }
+}
+
+.show-infos {
+  top: auto;
+}
+
+.map-pane{
+  position:absolute;
+  top: 100px;
+  bottom: 0;
+  width: 50%;
+}
+
+#overlay {
+  display: none;
+  z-index: 5000;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background-color: white;
+}
+
+// minimap
+.leaflet-control-minimap {
+    border:solid rgba(255, 255, 255, 0.7) 3px;
+    box-shadow: 0 1px 7px #999;
+    background: #f8f8f9;
+    -moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+    border-radius: 8px;
+}
+
+.leaflet-control-minimap a {
+    background-color: rgba(255, 255, 255, 0.75);
+    background-position: 1px 2px;
+    background-repeat: no-repeat;
+    display: block;
+    outline: none;
+    z-index: 99999;
+}
+
+.leaflet-control-minimap a.minimized {
+    background-position: 1px -18px;
+}
+
+.leaflet-control-minimap-toggle-display {
+    background-image: url("images/toggle.png");
+    border-radius: 4px 4px 4px 4px;
+    height: 19px;
+    width: 19px;
+    position: absolute;
+    bottom: 0;
+    right: 0; 
+}
+
+/* FOOTER */
+.map-body #footer {
+  position: absolute;
+  bottom: 0;
+}
+#footer {
+  #cg-logo {
+    padding-right: 0;
+    text-align: right;
+  }
+  #slogan {
+    text-align: right;
+    border-top: 0.2em solid @green;
+    padding-right: 0;
+
+    span {
+      background-color: @green;
+      padding: 0;
+      margin-right: -0.05em;
+    }
+  }
+  nav ul {
+    margin-bottom: 0;
+    font-size: 80%;
+    font-family: Verdana, Geneva, sans-serif;
+      li {
+        display: inline;
+        padding: 0 1em;
+        border-right: 1px solid grey;
+
+        a {
+          color: black;
+          font-weight: bold;
+        }
+      }
+      li:last-child {
+          border-right: 0;
+      }
+      
+    }
+}
+
+/* SECONDARY PAGES */
+.secondary-page {
+  #wrapper {
+    font-size:80%;
+  }
+}
+#secondary-page-zone {
+  font-size:75%;
+  h1 {
+    font-size: 2em;
+  }
+  h2 {
+    font-size: 1.3em;
+  }
+}
+
+/* RESPONSIVE */
+@media only screen and (max-width: 48em) {
+  .map-full {
+    top: 14.7em;
+    bottom: 3.5em;
+  }
+}
+
+/* PRINT */
+.screamshot {
+  .tagline {
+    display: none;
+  }
+
+  #search {
+    display: none;
+  }
+
+  #footer-navigation {
+    display: none;
+  }
+
+  .map-full {
+    top: 5em;
+  }
+
+  .leaflet-control {
+    display: none;
+  }
+  
+  .leaflet-control-scale {
+    display: block;
+  }
+}

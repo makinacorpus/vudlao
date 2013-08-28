@@ -1,0 +1,215 @@
+<html class="no-js" lang="en">
+<!--<![endif]-->
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+
+<!-- Set the viewport width to device width for mobile -->
+<meta name="viewport" content="width=device-width" />
+
+<title>Prototype</title>
+
+<!-- CSS Files -->
+<link rel="stylesheet" href="assets/css/foundation.min.css" />
+
+<link
+	href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css"
+	rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/app.css" />
+<!-- Integrate PhoneGap library -->
+<script type="text/javascript" src="cordova-2.3.0.js"></script>
+
+<script type="text/javascript">
+	function ChangeOnglet_2(active, nombre, tab_prefix, contenu_prefix) {
+		for ( var i = 1; i < nombre + 1; i++) {
+			document.getElementById(contenu_prefix + i).style.display = 'none';
+			document.getElementById(tab_prefix + i).className = '';
+		}
+
+		document.getElementById(contenu_prefix + active).style.display = 'block';
+		document.getElementById(tab_prefix + active).className = 'active';
+	}
+</script>
+<!-- Fix leaflet issue with PhantomJS 
+  https://github.com/rassie/Leaflet/commit/1c8e0c690163b0e6aa2068dbf10b3745a2b70048
+  -->
+
+</head>
+<body class="map-body" onload="init();">
+	<div class="actionbar">
+		<div style="float: right; height: 100%; border: none">
+
+			<div class="btn-action" id="btn-action-map">
+				<a href="map.html" class="poilistehref"
+					title="Region" id="ico_btn" align="right"
+					style="margin: 10px 5px 0px 0px;">
+					<div style="height: 100%"></div>
+				</a>
+			</div>
+
+
+		</div>
+	</div>
+
+
+	<div id="tabbed_box_1" class="tabbed_box">
+
+		<div class="tabbed_area">
+			<ul class="tabs">
+				<li><a
+					href="javascript:ChangeOnglet_2(1, 3, 'tab_', 'content_');"
+					id="tab_1" class="active">A propos</a></li>
+				<li><a
+					href="javascript:ChangeOnglet_2(2, 3, 'tab_', 'content_');"
+					id="tab_2">Mention légales</a></li>
+				<li><a
+					href="javascript:ChangeOnglet_2(3, 3, 'tab_', 'content_');"
+					id="tab_3">Contact</a></li>
+			</ul>
+
+			<div id="content_1" class="content">
+				<!-- Whole Body Div -->
+				<div class="row">
+					<div class="large-12 columns large-centered">
+
+
+						<div id="header" class="row">
+							<div class="large-12 columns">
+								<a href="index.html"><img src="assets/images/logo.png" /></a>
+								<p class="tagline">Photographies aériennes de la
+									Loire-Atlantique</p>
+							</div>
+						</div>
+
+
+						<!-- Main page content -->
+						<div id="wrapper">
+
+
+	<h1 id='_propos_de_ce_service'>À propos de ce service</h1>
+
+<h2 id='vuducielloireatlantiquefr__le_meilleur_point_de_vue_sur_la_loireatlantique'>vuduciel.loire-atlantique.fr : le meilleur point de vue sur la Loire-Atlantique</h2>
+
+<p>Le Département a lancé une campagne de photographies aériennes pendant l’été 2012. Un avion équipé d’une caméra numérique a réalisé une nouvelle série d’images aériennes afin d’actualiser la photographie aérienne départementale précédente, datant de 2009. Ce site est un outil de consultation cartographique qui rassemble les 6 500 photographies aériennes les plus récentes décrivant les différents territoires de Loire-Atlantique.</p>
+
+<p>Ces images de 2012 améliorent grandement la résolution des clichés jusqu’à présent disponibles en dehors des agglomérations. Avec 20 cm de résolution (1 pixel à l’écran représente 20 cm sur le terrain, NDLR), elles permettent d’obtenir un niveau de détail permettant d’observer finement les peuplements végétaux, les marquages au sol, le tissu urbain, etc. Elles rendent ainsi accessibles un portrait aérien qui permet de découvrir de très près cet immense territoire de 6 815 km², ses innombrables facettes et la mosaïque d’espaces si particuliers qui le composent.</p>
+
+<p>A partir de septembre 2013, ce site internet s’enrichira de 5 collections d’images anciennes permettant de remonter le temps jusqu’au début des années 1950 pour les photographies aériennes ; et 100 ans plus tôt, en 1850, avec la première carte d’État-major dressée sur le département. Nous présenterons alors quelques-unes de ces images, qui illustrent et rendent bien compte du développement contemporain des villes, de l’évolution de leur forme, et du génie des lieux. Elles constituent une grande richesse patrimoniale que cet outil cartographique nous invite à (re)découvrir, d’un clic sur vuduciel.loire-atlantique.fr.</p>	
+
+
+							
+
+							<!-- end wrapper -->
+						</div>
+						<!-- End Whole-Body Div -->
+					</div>
+				</div>
+
+
+
+			</div>
+			<div id="content_2" class="content">
+				<!-- Whole Body Div -->
+				<div class="row">
+					<div class="large-12 columns large-centered">
+
+
+						<div id="header" class="row">
+							<div class="large-12 columns">
+								<a href="index.html"><img src="assets/images/logo.png" /></a>
+								<p class="tagline">Photographies aériennes de la
+									Loire-Atlantique</p>
+							</div>
+						</div>
+
+
+						<!-- Main page content -->
+						<div id="wrapper">
+
+
+							<h1 id='mentions_lgales'>Mentions légales</h1>
+
+<h2 id='edition'>Edition</h2>
+
+<p>Département de Loire-Atlantique BP 94109 44041 Nantes Cedex 1 Tél : 02 40 99 10 00 Fax : 02 40 99 11 48 <a href='mailto:contact@loire-atlantique.fr'>contact(at)loire-atlantique.fr</a></p>
+
+<p><strong>Directeur de la publication</strong> Philippe Grosvalet, Président du Conseil général</p>
+
+<p><strong>Co-directeurs de la publication</strong> Patrick Gaudin, Eric Ardouin</p>
+
+<p><strong>Responsable de la publication</strong> Agnès Broquet</p>
+
+<h2 id='gestion_et_cration_du_site'>Gestion et création du site</h2>
+
+<p><strong>Réalisation :</strong> Le site vuduciel.loire-atlantique.fr a été conçu et développé par <a href='http://www.makina-corpus.com/'>Makina Corpus</a>.</p>
+
+<p><strong>Gestion</strong> Direction de l&#8217;observation et de la prospective, pôle innovation et multimédia, direction des solutions numériques.</p>
+
+<p><strong>Hébergement</strong> ????</p>
+
+<p><strong>Conception graphique</strong> Pôle innovation et multimédia - Direction de la communication</p>	
+
+						</div>
+
+						<div class="row">
+							<div class="large-1 columns" id="social-buttons-container"></div>
+						</div>
+
+
+						<!-- End Whole-Body Div -->
+					</div>
+				</div>
+
+			</div>
+			<div id="content_3" class="content">
+				<!-- Whole Body Div -->
+				<div class="row">
+					<div class="large-12 columns large-centered">
+
+
+						<div id="header" class="row">
+							<div class="large-12 columns">
+								<a href="index.html"><img src="assets/images/logo.png" /></a>
+								<p class="tagline">Photographies aériennes de la
+									Loire-Atlantique</p>
+							</div>
+						</div>
+
+
+						<!-- Main page content -->
+						<div id="wrapper">
+
+
+							<h1 id='nous_contacter'>Nous contacter</h1>
+
+<p><strong>Par courrier</strong> Département de Loire-Atlantique BP 94109 44041 Nantes Cedex 1 <strong>Par téléphone :</strong> 02 40 99 10 00 <strong>Par fax :</strong> 02 40 99 11 48 <strong>Par courriel :</strong><a href='mailto:contact@loire-atlantique.fr'>contact@loire-atlantique.fr</a></p>	
+
+
+							<!-- end wrapper -->
+						</div>
+
+						<div class="row">
+							<div class="large-1 columns" id="social-buttons-container"></div>
+						</div>
+						
+
+						<!-- End Whole-Body Div -->
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<script src="assets/js/foundation.js"></script>
+
+
+
+
+
+</body>
+</html>
+
+
+
+
+

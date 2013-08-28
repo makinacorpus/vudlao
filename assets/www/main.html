@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+
+<!-- Set the viewport width to device width for mobile -->
+<meta name="viewport" content="width=device-width" />
+
+<title>Photographies aériennes de la Loire-Atlantique - La
+	Loire-Atlantique vue du ciel</title>
+<meta name="description"
+	content="Découvrez la Loire-Atlantique vue du ciel, grâce à plus de 6 500 photographies aériennes mises à disposition gratuitement et en open data par le Département de Loire-Atlantique." />
+<link rel="icon" href="favicon.ico" />
+<meta property="og:image"
+	content="http://vuduciel.loire-atlantique.fr/assets/images/logo.png" />
+<meta property="og:title"
+	content="Découvrez la Loire-Atlantique vue du ciel, grâce à plus de 6 500 photographies aériennes mises à disposition gratuitement et en open data par le Département de Loire-Atlantique." />
+
+<!-- CSS Files -->
+<link rel="stylesheet" href="assets/css/foundation.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.css" />
+<link
+	href="font-awesome/css/font-awesome.css"
+	rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/app.css" />
+
+
+<!-- Fix leaflet issue with PhantomJS 
+  https://github.com/rassie/Leaflet/commit/1c8e0c690163b0e6aa2068dbf10b3745a2b70048
+  -->
+<script type="text/javascript">
+	var ua = navigator.userAgent.toLowerCase();
+	if (ua.indexOf('phantom') !== -1) {
+		window.L_DISABLE_3D = true;
+	}
+</script>
+</head>
+<body class="map-body">
+	<div class="actionbar" id="acbar">
+		<div style="float: right; height: 100%; border: none">
+
+			<div class="btn-action" id="btn-action-map">
+				<a href="map.html" class="poilistehref" title="Region" id="ico_btn"
+					align="right" style="margin: 10px 5px 0px 0px;">
+					<div style="height: 100%"></div>
+				</a>
+			</div>
+			<div class="btn-action" id="btn-action-note">
+				<a href="infogen.html" class="poilistehref" title="Region"
+					id="ico_btn" align="right" style="margin: 10px 5px 0px 0px;">
+					<div style="height: 100%"></div>
+				</a>
+			</div>
+
+		</div>
+	</div>
+	<div id="header" class="row">
+		<div class="large-12 columns">
+			<a href="index.html"><img id="logo" src="assets/images/logo.png" /></a>
+			<p class="tagline">
+				<strong>Photographies aériennes</strong> de la Loire-Atlantique
+			</p>
+		</div>
+	</div>
+
+	<div id="search" class="row">
+		<form id="search-address">
+			<div id="search-label" class="large-2 columns show-for-medium-up">
+				<img src="assets/images/drapeau.png" /> <label for="search-input">Rechercher
+					par adresse</label>
+			</div>
+			<div class="large-7 small-9 columns">
+				<div id="zero-results" class="icon-exclamation-sign"></div>
+				<input type="text" placeholder="exemple : 3 quai Ceineray, Nantes"
+					name="search" id="search-input" />
+				<ul id="choice-list" class="f-dropdown medium">
+				</ul>
+			</div>
+			<div class="large-3 small-3 columns">
+				<button id="search-button" type="submit"
+					class="small button searchni">
+					<i class="icon-caret-right"></i>
+				</button>
+			</div>
+		</form>
+	</div>
+
+
+	<div id="map" class="map-full"></div>
+	<div id="overlay"></div>
+
+
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push([ '_setAccount', 'UA-40698830-1' ]);
+		_gaq.push([ '_trackPageview' ]);
+
+		(function() {
+			var ga = document.createElement('script');
+			ga.type = 'text/javascript';
+			ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl'
+					: 'http://www')
+					+ '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0];
+			s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+
+<script src="cordova.js"></script>
+	<script src="http://cg44.makina-corpus.net/geojson/44.js"></script>
+	<script src="assets/js/foundation.js"></script>
+	<script src="assets/js/map.js"></script>
+
+	<script type='text/javascript'
+		src="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.js"></script>
+	<script src="assets/js/Control.MiniMap.js" type="text/javascript"></script>
+
+
+
+</body>
+</html>
+
+
