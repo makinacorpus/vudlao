@@ -4,6 +4,10 @@ window.onload=function(){
    * built to work with Leaflet version 0.5
    * https://github.com/elidupuis/leaflet.zoomfs
    */
+	getLocaleName();
+	//La traduction de la page index.html
+	document.getElementById("tagline").innerHTML=trad('intro');
+	
   L.Control.ZoomFS = L.Control.Zoom.extend({
     includes: L.Mixin.Events,
     onAdd: function (map) {
