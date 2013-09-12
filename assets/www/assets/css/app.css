@@ -195,14 +195,15 @@
 }
 
 .leaflet-control-minimap a.minimized {
-	background-position: 1px -18px
+	background-position: 1px -18px;
+	
 }
 
 .leaflet-control-minimap-toggle-display {
-	background-image: url("images/toggle.png");
-	border-radius: 4px 4px 4px 4px;
-	height: 19px;
-	width: 19px;
+	background-image: url("../images/toggle.png");
+	border-radius: 1px 1px 1px 1px;
+	height: 22px;
+	width: 22px;
 	position: absolute;
 	bottom: 0;
 	right: 0
