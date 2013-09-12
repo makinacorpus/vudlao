@@ -774,6 +774,50 @@ var HAS_HASHCHANGE = (function() {
     attribution: "",
     errorTileUrl: "/assets/images/empty.png"
   }).addTo(map);
+  
+  var ortho1850 = new L.FallbackTileLayer('http://{s}.tiles.cg44.makina-corpus.net/ortho-1850/{z}/{x}/{y}.jpg', {
+	    continuousWorld: true,  // very important
+	    tms: true,
+	    maxZoom: 19,
+	    subdomains: "abcdefgh",
+	    attribution: "",
+	    errorTileUrl: "/assets/images/empty.png"
+	  }).addTo(map);
+  var ortho1949= new L.FallbackTileLayer('http://{s}.tiles.cg44.makina-corpus.net/ortho-1949/{z}/{x}/{y}.jpg', {
+	    continuousWorld: true,  // very important
+	    tms: true,
+	    maxZoom: 19,
+	    subdomains: "abcdefgh",
+	    attribution: "",
+	    errorTileUrl: "/assets/images/empty.png"
+	  }).addTo(map);
+  var ortho1999 = new L.FallbackTileLayer('http://{s}.tiles.cg44.makina-corpus.net/ortho-1999/{z}/{x}/{y}.jpg', {
+	    continuousWorld: true,  // very important
+	    tms: true,
+	    maxZoom: 19,
+	    subdomains: "abcdefgh",
+	    attribution: "",
+	    errorTileUrl: "/assets/images/empty.png"
+	  }).addTo(map);
+  var ortho2004 = new L.FallbackTileLayer('http://{s}.tiles.cg44.makina-corpus.net/ortho-2004/{z}/{x}/{y}.jpg', {
+	    continuousWorld: true,  // very important
+	    tms: true,
+	    maxZoom: 19,
+	    subdomains: "abcdefgh",
+	    attribution: "",
+	    errorTileUrl: "/assets/images/empty.png"
+	  }).addTo(map);
+  var ortho2009 = new L.FallbackTileLayer('http://{s}.tiles.cg44.makina-corpus.net/ortho-2009/{z}/{x}/{y}.jpg', {
+	    continuousWorld: true,  // very important
+	    tms: true,
+	    maxZoom: 19,
+	    subdomains: "abcdefgh",
+	    attribution: "",
+	    errorTileUrl: "/assets/images/empty.png"
+	  }).addTo(map);
+
+  
+  
 
   ortho2012.on('load', function() {
     // do not display external layers if not near limit
