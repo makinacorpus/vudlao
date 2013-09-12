@@ -1,0 +1,23 @@
+.actionbar {
+	position: absolute;
+	width: 100%;
+	height: 12.5%;
+	background: #BECE13;
+}
+#header {
+	padding-top: 8%;
+}
+#logo{
+	width: 60%;
+	height: 8%;
+	 margin:0 auto;
+	
+}
+.leaflet-control-minimap{
+	display: none;
+}
+#search {
+	background-color: #b1ca00;
+	padding-top: .4em;
+	position: relative
+}
