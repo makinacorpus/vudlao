@@ -883,14 +883,14 @@ function demarrageApps(){
 
 	// CONTROLS
 	var osm = new L.TileLayer("http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {maxZoom: 11, attribution: "Map data &copy; OpenStreetMap contributors"});
-	var miniMap = new L.Control.MiniMap(osm, {
-		zoomLevelFixed: 7,
-		toggleDisplay: true,
-		fixedPosition: true,
-		autoToggleDisplay: true,
-		center: [-1.8237, 47.35],
-		width: 160
-	}).addTo(map);
+//	var miniMap = new L.Control.MiniMap(osm, {
+//		zoomLevelFixed: 7,
+//		toggleDisplay: true,
+//		fixedPosition: true,
+//		autoToggleDisplay: true,
+//		center: [-1.8237, 47.35],
+//		width: 160
+//	}).addTo(map);
 
 	map.on('locationerror', function() {
 		console.log("Too far away, keep default location");

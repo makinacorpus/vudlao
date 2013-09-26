@@ -31,12 +31,12 @@
 	var ua = navigator.userAgent.toLowerCase();
 	
 	  var onDeviceReady = function() {
-		  demarrageApps();
+		
 		  if(localStorage.getItem("spl")==null||localStorage.getItem("spl")=="yes"){
 			  navigator.splashscreen.show();
 			  localStorage.setItem("spl","yes");
 		  }
-		
+		  demarrageApps();
       };
      
 
