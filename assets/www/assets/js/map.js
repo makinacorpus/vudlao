@@ -390,6 +390,7 @@ function demarrageApps(){
 		},
 
 		share: function () {
+			  localStorage.setItem("spl","no");
 			var url = this.link;
 			if(url=="info"){
 				document.location.href="infogen.html";

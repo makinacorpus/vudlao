@@ -33,8 +33,12 @@
 		window.L_DISABLE_3D = true;
 	}
 	  var onDeviceReady = function() {
+		 
+		  if(localStorage.getItem("spl")==null||localStorage.getItem("spl")=="yes"){
+			  navigator.splashscreen.show();
+			  localStorage.setItem("spl","yes");
+		  }
 		  demarrageApps();
-		  navigator.splashscreen.show();
       };
      
 
