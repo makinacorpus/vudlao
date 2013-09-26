@@ -1000,12 +1000,22 @@ function demarrageApps(){
 				}
 			});
 	function onLocationFound(e) {
-		var latitude=e.latlng.lat;
-		var longitude=e.latlng.lng;
-		var newHash="#16/"+latitude+"/"+longitude;
-		L.marker([latitude, longitude]).addTo(map);
-    	window.location.href="file:///android_asset/www/main.html"+newHash;
-    	document.getElementById("search-input").value = "Votre position";
+		var max_bounds_forlocation = new L.LatLngBounds(new L.LatLng(46.8, -3.0), new L.LatLng(47.87, -0.8));
+		
+		
+		if(max_bounds_forlocation.contains(e.latlng)){
+			var latitude=e.latlng.lat;
+			var longitude=e.latlng.lng;
+			
+		
+			var newHash="#16/"+latitude+"/"+longitude;
+			L.marker([latitude, longitude]).addTo(map);
+	    	window.location.href="file:///android_asset/www/main.html"+newHash;
+	    	document.getElementById("search-input").value = "Votre position";	
+		}
+		else{
+			alert("Pas de photo disponible pour votre position.");
+		}
 
 
 

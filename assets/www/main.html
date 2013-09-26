@@ -29,16 +29,14 @@
   -->
 <script type="text/javascript">
 	var ua = navigator.userAgent.toLowerCase();
-	if (ua.indexOf('phantom') !== -1) {
-		window.L_DISABLE_3D = true;
-	}
+	
 	  var onDeviceReady = function() {
-		 
+		  demarrageApps();
 		  if(localStorage.getItem("spl")==null||localStorage.getItem("spl")=="yes"){
 			  navigator.splashscreen.show();
 			  localStorage.setItem("spl","yes");
 		  }
-		  demarrageApps();
+		
       };
      
 
