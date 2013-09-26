@@ -136,8 +136,8 @@ L.Control.MiniMap = L.Control.extend({
 	_minimize: function () {
 		// hide the minimap
 		if (this.options.toggleDisplay) {
-			this._container.style.width = '19px';
-			this._container.style.height = '19px';
+			this._container.style.width = '25px';
+			this._container.style.height = '25px';
 			this._toggleDisplayButton.className += ' minimized';
 		}
 		else {

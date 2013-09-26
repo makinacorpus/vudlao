@@ -32,29 +32,25 @@
 	if (ua.indexOf('phantom') !== -1) {
 		window.L_DISABLE_3D = true;
 	}
+	  var onDeviceReady = function() {
+		  demarrageApps();
+		  navigator.splashscreen.show();
+      };
+     
+
+     
+
+      function init() {
+            document.addEventListener("deviceready", onDeviceReady, true);
+      
+      }   
+   
+
+      
 </script>
 </head>
-<body class="map-body">
-	<div class="actionbar" id="acbar">
-		<div style="float: right; height: 100%; border: none">
-			<div class="btn-action" id="btn-action-note">
-				<a href="infogen.html" class="poilistehref" title="Region"
-					id="ico_btn" align="right" style="margin: 10px 5px 0px 0px;">
-					<div style="height: 100%"></div>
-				</a>
-			</div>
-
-		</div>
-	</div>
-	<div id="header" class="row">
+<body class="map-body" onload="init();">
 	
-		<div class="large-12 columns">
-			<a href="index.html"><img id="logo" src="assets/images/logo.png" /></a>
-			<p class="tagline" id="tagline">
-			
-			</p>
-		</div>
-	</div>
 
 	<div id="search" class="row">
 		<form id="search-address">

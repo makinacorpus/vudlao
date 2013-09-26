@@ -1,4 +1,6 @@
-window.onload=function(){
+var watchID;
+
+function demarrageApps(){
 	/*
 	 * L.Control.ZoomFS - default Leaflet.Zoom control with an added fullscreen button
 	 * built to work with Leaflet version 0.5
@@ -6,7 +8,6 @@ window.onload=function(){
 	 */
 	getLocaleName();
 	//La traduction de la page index.html
-	document.getElementById("tagline").innerHTML=trad('intro');
 
 	L.Control.ZoomFS = L.Control.Zoom.extend({
 		includes: L.Mixin.Events,
@@ -200,6 +201,9 @@ window.onload=function(){
 			movingMap: false,
 			update: function() {
 				var hash = location.hash;
+				localStorage.setItem("hash", location.hash);
+
+
 				if (hash === this.lastHash) {
 					return;
 				}
@@ -265,6 +269,8 @@ window.onload=function(){
 	L.Map.prototype.removeHash = function() {
 		this._hash.remove();
 	};
+
+
 //	############################
 	// Bossule
 	// ############################
@@ -318,7 +324,10 @@ window.onload=function(){
 
 		//fonction appele lors du l'echec d'appel de la boussole
 		onError:function(compassError) {
-			alert('Compass error: ' + compassError.code);
+			
+			navigator.compass.clearWatch(watchID);
+			divcompass.style.display = 'none';
+
 		}
 
 	});
@@ -375,15 +384,20 @@ window.onload=function(){
 			links: [
 			        ['facebook', "Partager sur Facebook", "https://www.facebook.com/sharer.php?u=_url_&t=_text_"],
 			        ['twitter', "Partager sur Twitter", "http://twitter.com/intent/tweet?text=_text_&url=_url_"],
-			        ['google-plus', "Partager sur Google Plus", "https://plus.google.com/share?url=_url_"]
+			        ['google-plus', "Partager sur Google Plus", "https://plus.google.com/share?url=_url_"],
+			        ['info', "Information générale", "info"]
 			        ]
 		},
 
 		share: function () {
 			var url = this.link;
-			url = url.replace(/_text_/, encodeURIComponent(this.self.options.text));
-			url = url.replace(/_url_/, encodeURIComponent(location.href));
-			window.open(url);
+			if(url=="info"){
+				document.location.href="infogen.html";
+			}else{
+				url = url.replace(/_text_/, encodeURIComponent(this.self.options.text));
+				url = url.replace(/_url_/, encodeURIComponent(location.href));
+				window.open(url);
+			}
 		},
 
 		onAdd: function(map) {
@@ -424,6 +438,7 @@ window.onload=function(){
 
 		locate: function() {
 			this.map.locate();
+
 		},
 		onAdd: function(map) {
 			this.map = map;
@@ -702,10 +717,25 @@ window.onload=function(){
 				                     ["Lac de Vioreau, Joué-sur-Erdre", 15, 47.5232, -1.4230],
 				                     ];
 				var random = niceLocations[Math.floor(Math.random()*niceLocations.length)];
-				map.setView([random[2], random[3]], random[1]);
-				if(!location.hash) {
+
+
+				
+				if(!localStorage.getItem("hash")) {
+					map.setView([random[2], random[3]], random[1]);
 					document.getElementById("search-input").value = random[0];
+					localStorage.setItem("inupt", random[0]);
+
 					Ortho44.setClass(document.getElementById('search-input'), "random-display");
+				}else{
+					var hashFromStorage=localStorage.getItem("hash").substr(1);
+					var args = hashFromStorage.split("/");
+					var zoom = parseInt(args[0], 10),
+					lat = parseFloat(args[1]),
+					lon = parseFloat(args[2]);
+					map.setView([lat, lon], zoom);
+					document.getElementById("search-input").value =localStorage.getItem("input");
+					Ortho44.setClass(document.getElementById('search-input'), "random-display");
+					L.marker([lat, lon]).addTo(map);
 				}
 			}
 
@@ -723,28 +753,28 @@ window.onload=function(){
 		tms: true,
 		subdomains: 'abcdefgh'
 	}),
-	 ortho1949= L.tileLayer('http://{s}.tiles.cg44.makina-corpus.net/ortho-1949/{z}/{x}/{y}.jpg', {
+	ortho1949= L.tileLayer('http://{s}.tiles.cg44.makina-corpus.net/ortho-1949/{z}/{x}/{y}.jpg', {
 		maxZoom: 18,
 		tms: true,
 		subdomains: 'abcdefgh'
 	}),
-	  ortho1999= L.tileLayer('http://{s}.tiles.cg44.makina-corpus.net/ortho-1999/{z}/{x}/{y}.jpg', {
+	ortho1999= L.tileLayer('http://{s}.tiles.cg44.makina-corpus.net/ortho-1999/{z}/{x}/{y}.jpg', {
 		maxZoom: 18,
 		tms: true,
 		subdomains: 'abcdefgh'
 	}),
-	 ortho2004= L.tileLayer('http://{s}.tiles.cg44.makina-corpus.net/ortho-2004/{z}/{x}/{y}.jpg', {
+	ortho2004= L.tileLayer('http://{s}.tiles.cg44.makina-corpus.net/ortho-2004/{z}/{x}/{y}.jpg', {
 		maxZoom: 18,
 		tms: true,
 		subdomains: 'abcdefgh'
 	}),
-	 ortho2009= L.tileLayer('http://{s}.tiles.cg44.makina-corpus.net/ortho-2009/{z}/{x}/{y}.jpg', {
+	ortho2009= L.tileLayer('http://{s}.tiles.cg44.makina-corpus.net/ortho-2009/{z}/{x}/{y}.jpg', {
 		maxZoom: 18,
 		tms: true,
 		subdomains: 'abcdefgh'
 	});
-	
-	
+
+
 	var border = L.geoJson(loire_atlantique_json, {
 		style: function (feature) {
 			return {
@@ -765,8 +795,8 @@ window.onload=function(){
 		attribution: "",
 		errorTileUrl: "/assets/images/empty.png"
 	});
-	
-	
+
+
 	var max_bounds_strict = new L.LatLngBounds(new L.LatLng(46.86008, -2.55754), new L.LatLng(47.83486, -0.92346));
 	var max_bounds_buffer = new L.LatLngBounds(new L.LatLng(46.8, -3.0), new L.LatLng(47.87, -0.8));
 	var map = L.map('map',
@@ -874,7 +904,7 @@ window.onload=function(){
 			"Afficher les rues": streets_custom_osm,
 			"Afficher les limites départementales": border
 	};
-//	L.control.layers(null, overlayMaps).addTo(map);
+	L.control.layers(null, overlayMaps).addTo(map);
 
 
 
@@ -886,7 +916,7 @@ window.onload=function(){
 			"2004": ortho2004,
 			"2009": ortho2009,
 	};
-	L.control.layers(older_layer, overlayMaps).addTo(map);
+//	L.control.layers(older_layer, overlayMaps).addTo(map);
 
 	L.control.locator().addTo(map);
 	(new L.Control.ZoomFS()).addTo(map); 
@@ -913,7 +943,11 @@ window.onload=function(){
 				if(results.hits.total > 0) {
 					var best = results.hits.hits[0]._source;
 					if(results.hits.total==1) {
+						
 						Ortho44.showResult(best);
+						
+						
+					//	
 					} else {
 						var choices = {};
 						for(var i=0;i<results.hits.hits.length;i++) {
@@ -931,6 +965,7 @@ window.onload=function(){
 							li.innerHTML = choice;
 							L.DomEvent.addListener(li, 'click', (function(label, hit) {
 								return function(){
+									localStorage.setItem("input",label);
 									document.getElementById("search-input").value = label;
 									Ortho44.removeClass(choices_box, "show-choices");
 									Ortho44.showResult(hit);
@@ -939,14 +974,20 @@ window.onload=function(){
 							choices_box.appendChild(li);
 						}
 						if(distinct.length == 1) {
+						
 							Ortho44.showResult(best);
+							var reg=new RegExp("<.[^>]*>", "gi" );
+							document.getElementById("search-input").value =  (Ortho44._getLabel(best, "LISTING")).replace(reg, "" );
 						} else {
 							Ortho44.setClass(choices_box, "show-choices");
 						}
 					}
 					Ortho44.setClass(document.getElementById('search-address'), "search-success");
 					Ortho44.removeClass(document.getElementById('search-address'), "search-no-result");
-				} else {
+				} 
+				
+				
+				else {
 					resultsLayer.clearLayers();
 					Ortho44.setClass(document.getElementById('search-address'), "search-no-result");
 					Ortho44.removeClass(document.getElementById('search-address'), "search-success");
@@ -957,6 +998,19 @@ window.onload=function(){
 					Ortho44.setClass(choices_box, "show-choices");
 				}
 			});
+	function onLocationFound(e) {
+		var latitude=e.latlng.lat;
+		var longitude=e.latlng.lng;
+		var newHash="#16/"+latitude+"/"+longitude;
+		L.marker([latitude, longitude]).addTo(map);
+    	window.location.href="file:///android_asset/www/main.html"+newHash;
+    	document.getElementById("search-input").value = "Votre position";
+
+
+
+	}
+
+	map.on('locationfound', onLocationFound);
 
 	$(document).foundation(null, null, null, null, true);
 	$(document).foundation('dropdown', 'off');
@@ -967,7 +1021,7 @@ window.onload=function(){
 			$('#secondary-page-zone').load(this.href + ' #wrapper');
 			event.preventDefault ? event.preventDefault() : event.returnValue = false;
 			return false;
-		})
+		});
 	});
 
 }
