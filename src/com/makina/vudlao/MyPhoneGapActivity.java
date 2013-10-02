@@ -1,6 +1,7 @@
-package com.makina.ortho44;
+package com.makina.vudlao;
 
 import org.apache.cordova.DroidGap;
+
 import android.os.Bundle;
 
 public class MyPhoneGapActivity extends DroidGap {
