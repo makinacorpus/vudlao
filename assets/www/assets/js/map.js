@@ -435,9 +435,15 @@ function demarrageApps(){
 					});
 				
 				}else{
+				
+					var urltoshare="http://vuduciel.loire-atlantique.fr/";
 					url = url.replace(/_text_/, encodeURIComponent(this.self.options.text));
-					url = url.replace(/_url_/, encodeURIComponent(location.href));
-					window.open(url);
+					url = url.replace(/_url_/, encodeURIComponent(urltoshare));
+					var ref ;
+					 ref = window.open(url, '_blank', 'location=yes');
+					  ref.addEventListener('loadstart', function() {});
+				        ref.addEventListener('loadstop', function() {});
+				        ref.addEventListener('exit', function() { });
 				}
 			},
 
