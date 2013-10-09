@@ -431,7 +431,10 @@ function demarrageApps(){
 			   
 			    var reg=new RegExp("#", "g");
 			    var tableau=window.location.href.split(reg);
-			    
+
+				var urltoshare="http://vuduciel.loire-atlantique.fr/#"+tableau[1];
+				var text="Je regarde "+urltoshare+" depuis Vudlao, l'application mobile de @makina_corpus https://t.co/2jAAPQeyhY";
+				
 				if(url=="info"){
 				//	document.location.href="infogen.html";
 					jAlert('Cette application est une démonstration de la visualisation de photographies aériennes.Elle se connecte à un serveur développé par Makina Corpus.', 'Informations',function() {
@@ -441,11 +444,9 @@ function demarrageApps(){
 				}
 				
 				else if(url=="http://twitter.com/intent/tweet?text=_text_&url=_url_"){
-					var text="Découvrez la nouvelle application mobile de #photographiesaeriennes développée par @makina_corpus https://play.google.com/store/search?q=vuDLao&hl=fr";
-					
-					var urltoshare="http://vuduciel.loire-atlantique.fr/#"+tableau[1];
+						
 					url = url.replace(/_text_/, encodeURIComponent(text));
-					url = url.replace(/_url_/, encodeURIComponent(urltoshare));
+					url = url.replace(/_url_/, encodeURIComponent(""));
 					var ref ;
 					 ref = window.open(url, '_blank', 'location=yes');
 					  ref.addEventListener('loadstart', function() {});
@@ -454,8 +455,8 @@ function demarrageApps(){
 				}
 				else{
 				
-					var urltoshare="http://vuduciel.loire-atlantique.fr/#"+tableau[1];
-					url = url.replace(/_text_/, encodeURIComponent(this.self.options.text));
+			
+					url = url.replace(/_text_/, encodeURIComponent(text));
 					url = url.replace(/_url_/, encodeURIComponent(urltoshare));
 					var ref ;
 					 ref = window.open(url, '_blank', 'location=yes');
