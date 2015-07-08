@@ -1,0 +1,22 @@
+{
+	"name": "vudlao",
+	"version": "2.0.0",
+	"description": "Découvrez la Loire-Atlantique vue du ciel, grâce à plus de 6 500 photographies aériennes mises à disposition gratuitement et en open data par le Département de Loire-Atlantique.",
+	"author": "Makina Corpus",
+	"contributors": [
+		"Simon Prévidente <simon.previdente@free.fr> (https://simon-previdente.github.io/)"
+	],
+	"license": "MIT",
+	"dependencies": {},
+	"devDependencies": {
+		"bower": "^1.4.1",
+		"gulp": "^3.9.0",
+		"gulp-concat": "^2.6.0",
+		"gulp-minify-css": "^1.2.0",
+		"gulp-minify-html": "^1.0.3",
+		"gulp-sass": "^2.0.3",
+		"gulp-sourcemaps": "^1.5.2",
+		"gulp-uglify": "^1.2.0",
+		"require-dir": "^0.3.0"
+	}
+}
