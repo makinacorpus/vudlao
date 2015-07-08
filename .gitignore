@@ -1,3 +1,9 @@
+	# Dependencies
 node_modules
 bower_components
-app/www
+
+	# Generated files
+www/*
+
+	# Commit empty folders
+!**/.gitkeep

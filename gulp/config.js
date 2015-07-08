@@ -1,6 +1,6 @@
 var
 		src = "./src"
-		dest = "./app/www",
+		dest = "./www",
 		node_modules = "./node_modules",
 		bower_components = "./bower_components";
 
