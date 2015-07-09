@@ -1,0 +1,53 @@
+// Common
+body, html {
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	background-color: $body-bgc;
+}
+
+#header {
+	width: 100%;
+	height: $header-height;
+	color: $header-color;
+	background-color: $header-bgc;
+	.search-container {
+		float: left;
+	}
+	.compare-container {
+		float: right;
+	}
+}
+
+#container {
+	width: 100%;
+	height: calc(100% - #{$header-height});
+}
+#container.single-colunm {
+	.colunm {
+		display: none;
+	}
+	.colunm:first-child {
+		width: 100%;
+		height: 100%;
+		display: block;
+	}
+}
+#container.double-colunm {
+	// Common
+	.colunm {
+		display: inline-block;
+	}
+	// Phones (<768px)
+	.colunm {
+		width: 100%;
+		height: 50%;
+	}
+	// Tablets (≥768px)
+	@media (min-width: $tablets-size) {
+		.colunm {
+			width: 50%;
+			height: 100%;
+		}
+	}
+}

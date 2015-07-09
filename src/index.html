@@ -10,11 +10,28 @@
 		<title>Hello World</title>
 	</head>
 	<body>
-		<div class="app">
-			<h1>Apache Cordova</h1>
-			<div id="deviceready" class="blink">
-				<p class="event listening">Connecting to Device</p>
-				<p class="event received">Device is Ready</p>
+		<div id="header">
+			<div class="search-container">
+				<input type="text" placeholder="Exemple : 3 quai Ceineray, Nantes" name="search" id="search-input"/>
+			</div>
+			<div class="compare-container">
+				<select>
+					<option>Ne visualiser que 2012</option>
+					<option>Comparer 2012 avec 1850</option>
+					<option>Comparer 2012 avec 1949</option>
+					<option>Comparer 2012 avec 1999</option>
+					<option>Comparer 2012 avec 2004</option>
+					<option>Comparer 2012 avec 2009</option>
+				</select>
+			</div>
+		</div>
+
+		<div id="container" class="double-colunm">
+			<div class="colunm">
+				<div style="width: 100%; height: 100%; border: 1px dashed blue; box-sizing: border-box;">Map1</div>
+			</div>
+			<div class="colunm">
+				<div style="width: 100%; height: 100%; border: 1px dashed red; box-sizing: border-box;">Map2</div>
 			</div>
 		</div>
 		<script type="text/javascript" src="cordova.js"></script>

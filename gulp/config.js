@@ -33,8 +33,6 @@ module.exports = {
 	vendors: {
 		js: {
 			src: [
-				bower_components + "/jquery/dist/jquery.js",
-				bower_components + "/bootstrap/dist/js/bootstrap.js",
 				bower_components + "/leaflet/dist/leaflet-src.js",
 				bower_components + "/leaflet.sync/L.Map.Sync.js"
 			],
@@ -42,16 +40,12 @@ module.exports = {
 		},
 		sass: {
 			src: [
-				bower_components + "/bootstrap/dist/css/bootstrap.css",
+				bower_components + "/normalize.css/normalize.css",
 				bower_components + "/leaflet/dist/leaflet.css"
 			],
 			dest: dest + "/css/"
 		},
 		copy: [
-			{ // Bootstrap fonts
-				src: bower_components + "/bootstrap/dist/fonts/*",
-				dest: dest + "/fonts/"
-			},
 			{ // Leaflet images
 				src: bower_components + "/leaflet/dist/images/*",
 				dest: dest + "/img/leaflet/"

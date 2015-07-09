@@ -1,0 +1,21 @@
+$white: #FFFFFF;
+$black: #000000;
+$green: #B1CA00;
+$light-grey: #EAEAEA;
+$dark-grey: #222;
+
+// Extra small devices Phones (<768px)
+// Small devices Tablets (≥768px)
+// Medium devices Desktops (≥992px)
+// Large devices Desktops (≥1200px)
+$tablets-size: 768px;
+
+$body-bgc: $white;
+
+$header-bgc: $green;
+$header-color: $dark-grey;
+$header-height: 30px;
+
+$input-bgc: $white;
+$input-color: $dark-grey;
+$input-placeholder: $light-grey;
