@@ -37,6 +37,7 @@ body, html {
 	// Common
 	.colunm {
 		display: inline-block;
+		vertical-align: middle;
 	}
 	// Phones (<768px)
 	.colunm {
@@ -50,4 +51,9 @@ body, html {
 			height: 100%;
 		}
 	}
+}
+
+#map1, #map2 {
+	width: 100%;
+	height: 100%;
 }
