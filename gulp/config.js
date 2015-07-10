@@ -8,7 +8,11 @@ var
 module.exports = {
 	dist: {
 		js: {
-			src: src + "/js/*",
+			src: [
+				src + "/js/leaflet-sync.js",
+				src + "/js/leaflet-maps.js",
+				src + "/js/index.js"
+			],
 			dest: dest + "/js/"
 		},
 		sass: {
@@ -33,8 +37,7 @@ module.exports = {
 	vendors: {
 		js: {
 			src: [
-				bower_components + "/leaflet/dist/leaflet-src.js",
-				bower_components + "/leaflet.sync/L.Map.Sync.js"
+				bower_components + "/leaflet/dist/leaflet-src.js"
 			],
 			dest: dest + "/js/"
 		},
