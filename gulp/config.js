@@ -36,9 +36,7 @@ module.exports = {
 
 	vendors: {
 		js: {
-			src: [
-				bower_components + "/leaflet/dist/leaflet-src.js"
-			],
+			src: bower_components + "/leaflet/dist/leaflet-src.js",
 			dest: dest + "/js/"
 		},
 		sass: {
