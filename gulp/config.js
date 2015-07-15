@@ -11,6 +11,7 @@ module.exports = {
 			src: [
 				src + "/js/leaflet-sync.js",
 				src + "/js/leaflet-maps.js",
+				src + "/js/leaflet-border.js",
 				src + "/js/index.js"
 			],
 			dest: dest + "/js/"
