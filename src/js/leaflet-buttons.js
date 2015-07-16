@@ -42,7 +42,6 @@
 		}
 	});
 
-
 	// Streets
 	var streets_custom_osm = L.tileLayer('http://{s}.tiles.cg44.makina-corpus.net/osm/{z}/{x}/{y}.png', {
 		opacity: 0.8,
@@ -51,12 +50,57 @@
 		subdomains: 'abcdefgh'
 	});
 
-
 	// Border/Streets buttons
 	var overlayMaps = {
 		"Afficher les rues": streets_custom_osm,
 		"Afficher les limites départementales": border
 	};
 	L.control.layers(null, overlayMaps,{position: "topleft"}).addTo(map1);
+
+
+
+	L.Control.Social = L.Control.extend({
+		includes: L.Mixin.Events,
+		options: {
+			position: 'bottomleft',
+			title: 'Social networks',
+			text: "VuDuCiel Loire-Atlantique",
+			links: [
+				['facebook', "Partager sur Facebook", "https://www.facebook.com/sharer.php?u=_url_&t=_text_"],
+				['twitter', "Partager sur Twitter", "http://twitter.com/intent/tweet?text=_text_&url=_url_"],
+				['google-plus', "Partager sur Google Plus", "https://plus.google.com/share?url=_url_"]
+			]
+		},
+
+		share: function () {
+			var url = this.link;
+			url = url.replace(/_text_/, encodeURIComponent(this.self.options.text));
+			url = url.replace(/_url_/, encodeURIComponent("http://vuduciel.loire-atlantique.fr/#"+map1.getZoom()+"/"+map1.getCenter().lat+"/"+map1.getCenter().lng));
+			window.open(url);
+		},
+
+		onAdd: function(map) {
+			this.map = map;
+			this._container = L.DomUtil.create('div', 'leaflet-control');
+			for (var i = 0; i < this.options.links.length; i++) {
+				var socialNetwork = this.options.links[i];
+				var div = L.DomUtil.create('div', 'leaflet-social-control', this._container);
+				var link = L.DomUtil.create('a', 'leaflet-bar-part leaflet-bar-part-single leaflet-social-control-' + socialNetwork[0], div);
+				link.href = socialNetwork[2];
+				link.title = socialNetwork[1];
+				var span = L.DomUtil.create('i', 'sprite-'+socialNetwork[0], link);
+
+				L.DomEvent
+					.addListener(link, 'click', L.DomEvent.stopPropagation)
+					.addListener(link, 'click', L.DomEvent.preventDefault)
+					.addListener(link, 'click', this.share, {self: this, link: socialNetwork[2]});
+			};
+			return this._container;
+		}
+	});
+	L.control.social = function(map) {
+		return new L.Control.Social(map);
+	};
+	L.control.social().addTo(map1);
 
 })(this);
