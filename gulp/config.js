@@ -9,6 +9,7 @@ module.exports = {
 	dist: {
 		js: {
 			src: [
+				src + "/js/leaflet-tileLayerFallback.js",
 				src + "/js/leaflet-sync.js",
 				src + "/js/leaflet-maps.js",
 				src + "/js/leaflet-buttons.js",
@@ -37,7 +38,10 @@ module.exports = {
 
 	vendors: {
 		js: {
-			src: bower_components + "/leaflet/dist/leaflet-src.js",
+			src: [
+				bower_components + "/leaflet/dist/leaflet-src.js",
+				bower_components + "/leaflet.TileLayer.WMTS/leaflet-tilelayer-wmts-src.js"
+			],
 			dest: dest + "/js/"
 		},
 		sass: {

@@ -28,6 +28,7 @@
 				"fillOpacity": 0,
 				"weight": 2,
 				"opacity": 1,
+				"clickable": false,
 				"color": "transparent",
 				"dashArray": 3,
 			};

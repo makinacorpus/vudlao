@@ -17,6 +17,7 @@
 	"dependencies": {},
 	"devDependencies": {
 		"leaflet": "~0.7.3",
+		"leaflet.TileLayer.WMTS": "https://github.com/mylen/leaflet.TileLayer.WMTS.git",
 		"normalize.css": "~3.0.3"
 	}
 }
