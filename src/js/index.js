@@ -2,9 +2,23 @@
 	'use strict';
 
 	var container = document.getElementById("container");
-	var doubleColunm = false;
+	// init
+	var doubleColunm = (container.className === "double-colunm");
+	if(doubleColunm) {
+		map1.sync(map2);
+		map2.sync(map1);
+	}
+
 	function showHideMap(){
-		if(!doubleColunm) {
+		if(document.getElementById("compare-with").value === "0") {
+			container.className = "single-colunm";
+			doubleColunm = false;
+			// Resize
+			map1.invalidateSize();
+			// Unsync
+			map1.unsync();
+			map2.unsync();
+		} else {
 			container.className = "double-colunm";
 			doubleColunm = true;
 			// Resize
@@ -13,17 +27,8 @@
 			// Sync
 			map1.sync(map2);
 			map2.sync(map1);
-		} else {
-			container.className = "single-colunm";
-			doubleColunm = false;
-			// Resize
-			map1.invalidateSize();
-			// Unsync
-			map1.unsync();
-			map2.unsync();
 		}
 	};
 
-	document.getElementById("compare-button").addEventListener("click", showHideMap);
-
+	document.getElementById("compare-with").addEventListener("change", showHideMap);
 })();
