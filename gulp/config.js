@@ -38,10 +38,7 @@ module.exports = {
 
 	vendors: {
 		js: {
-			src: [
-				bower_components + "/leaflet/dist/leaflet-src.js",
-				bower_components + "/leaflet.TileLayer.WMTS/leaflet-tilelayer-wmts-src.js"
-			],
+			src: bower_components + "/leaflet/dist/leaflet-src.js",
 			dest: dest + "/js/"
 		},
 		sass: {
