@@ -103,5 +103,6 @@
 		return new L.Control.Social(map);
 	};
 	L.control.social().addTo(map1);
+	L.control.social().addTo(map2);
 
 })(this);

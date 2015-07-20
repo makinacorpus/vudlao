@@ -2,8 +2,8 @@
 	'use strict';
 
 	// Maps
-	global.map1 = L.map('map1', { minZoom : 10, maxZoom: 19 });
-	global.map2 = L.map('map2', { minZoom : 10, maxZoom: 19, zoomControl:false });
+	global.map1 = L.map('map1', { minZoom : 10, maxZoom: 16 });
+	global.map2 = L.map('map2', { minZoom : 10, maxZoom: 16, zoomControl:false });
 
 
 	// Layers Map1
@@ -44,7 +44,7 @@
 		'ortho2004': 'http://{s}.tiles.cg44.makina-corpus.net/ortho-2004/{z}/{x}/{y}.jpg',
 		'ortho2009': 'http://{s}.tiles.cg44.makina-corpus.net/ortho-2009/{z}/{x}/{y}.jpg'
 	};
-	var older = new L.FallbackTileLayer('http://{s}.tiles.cg44.makina-corpus.net/ortho-2012/{z}/{x}/{y}.jpg', { maxZoom: 16, tms: true, subdomains: 'abcdefgh' });
+	var older = new L.FallbackTileLayer('http://{s}.tiles.cg44.makina-corpus.net/ortho-2012/{z}/{x}/{y}.jpg', { tms: true, subdomains: 'abcdefgh' });
 	document.getElementById("compare-with").addEventListener("change", function(event){
 		if(orthoLayers['ortho' + event.target.value]) {
 			older.setUrl( orthoLayers['ortho' + event.target.value] );
