@@ -7,7 +7,7 @@
 
 
 	// Layers Map1
-	var layerMap1 = L.layerGroup();
+	global.layerMap1 = L.layerGroup();
 
 	var ortho2012 = new L.FallbackTileLayer('http://{s}.tiles.cg44.makina-corpus.net/ortho-2012/{z}/{x}/{y}.jpg', {
 		continuousWorld: true,
@@ -35,12 +35,22 @@
 
 
 	// Layers Map2
-	var layerMap2 = L.layerGroup();
+	global.layerMap2 = L.layerGroup();
 
-	var OSM = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
-		attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+	var orthoLayers = {
+		'ortho1850': 'http://{s}.tiles.cg44.makina-corpus.net/ortho-1850/{z}/{x}/{y}.jpg',
+		'ortho1949': 'http://{s}.tiles.cg44.makina-corpus.net/ortho-1949/{z}/{x}/{y}.jpg',
+		'ortho1999': 'http://{s}.tiles.cg44.makina-corpus.net/ortho-1999/{z}/{x}/{y}.jpg',
+		'ortho2004': 'http://{s}.tiles.cg44.makina-corpus.net/ortho-2004/{z}/{x}/{y}.jpg',
+		'ortho2009': 'http://{s}.tiles.cg44.makina-corpus.net/ortho-2009/{z}/{x}/{y}.jpg'
+	};
+	var older = new L.FallbackTileLayer('http://{s}.tiles.cg44.makina-corpus.net/ortho-2012/{z}/{x}/{y}.jpg', { maxZoom: 16, tms: true, subdomains: 'abcdefgh' });
+	document.getElementById("compare-with").addEventListener("change", function(event){
+		if(orthoLayers['ortho' + event.target.value]) {
+			older.setUrl( orthoLayers['ortho' + event.target.value] );
+		}
 	});
-	layerMap2.addLayer(OSM);
+	layerMap2.addLayer(older);
 
 	layerMap2.addTo(map2);
 
