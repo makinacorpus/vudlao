@@ -1,13 +1,15 @@
 (function(global) {
 	'use strict';
 
+	L.Icon.Default.imagePath = "img/leaflet"
+
 	// Maps
 	global.map1 = L.map('map1', { minZoom : 10, maxZoom: 16 });
 	global.map2 = L.map('map2', { minZoom : 10, maxZoom: 16, zoomControl:false });
 
 
 	// Layers Map1
-	global.layerMap1 = L.layerGroup();
+	var layerMap1 = L.layerGroup();
 
 	var ortho2012 = new L.FallbackTileLayer('http://{s}.tiles.cg44.makina-corpus.net/ortho-2012/{z}/{x}/{y}.jpg', {
 		continuousWorld: true,
@@ -35,7 +37,7 @@
 
 
 	// Layers Map2
-	global.layerMap2 = L.layerGroup();
+	var layerMap2 = L.layerGroup();
 
 	var orthoLayers = {
 		'ortho1850': 'http://{s}.tiles.cg44.makina-corpus.net/ortho-1850/{z}/{x}/{y}.jpg',
@@ -78,6 +80,7 @@
 		map1.setView([random[2], random[3]], random[1]);
 		map2.setView([random[2], random[3]], random[1]);
 		document.getElementById("search-input").value = random[0];
+		document.getElementById("search-input").className = "random-display";
 	}
 	randomDisplay();
 })(this);

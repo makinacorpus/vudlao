@@ -13,6 +13,12 @@ body, html {
 	background-color: $header-bgc;
 	.search-container {
 		float: left;
+
+		#choice-list {
+			z-index: 1;
+			position: absolute;
+			background-color: white;
+		}
 	}
 	.compare-container {
 		float: right;

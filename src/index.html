@@ -13,8 +13,11 @@
 	<body>
 		<div id="header">
 			<div class="search-container">
-				<input type="text" placeholder="Exemple : 3 quai Ceineray, Nantes" name="search" id="search-input"/>
-				<button type="submit" id="search-button">OK</button>
+				<form id="search-form">
+					<input type="text" placeholder="Exemple : 3 quai Ceineray, Nantes" name="search" id="search-input"/>
+					<button type="submit" id="search-button">OK</button>
+				</form>
+				<ul id="choice-list"></ul>
 			</div>
 			<div class="compare-container">
 				<select id="compare-with">
