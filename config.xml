@@ -8,6 +8,7 @@
 		Makina Corpus
 	</author>
 	<content src="index.html" />
+	<preference name="fullscreen" value="true" />
 	<plugin name="cordova-plugin-whitelist" version="1" />
 	<access origin="*" />
 	<allow-intent href="http://*/*" />
