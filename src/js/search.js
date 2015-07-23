@@ -71,6 +71,7 @@
 			var bounds = resultsLayerMap1.getBounds();
 			if (bounds.isValid()) {
 				map1.fitBounds(bounds);
+				map2.fitBounds(bounds);
 			}
 		}
 
