@@ -1,6 +1,35 @@
 (function(global) {
 	'use strict';
 
+	L.Control.ZoomFS = L.Control.Zoom.extend({
+		includes: L.Mixin.Events,
+		onAdd: function (map) {
+			var zoomName = 'leaflet-control-zoom',
+				barName = 'leaflet-bar',
+				partName = barName + '-part',
+				container = L.DomUtil.create('div', zoomName + ' ' + barName);
+
+			this._map = map;
+
+			this._zoomInButton = this._createButton('<i class="sprite-zoom-in"></i>', 'Zoom avant',
+				zoomName + '-in ' +
+				partName + ' ',
+				container, this._zoomIn,  this);
+
+			this._zoomOutButton = this._createButton('<i class="sprite-zoom-out"></i>', 'Zoom arrière',
+				zoomName + '-out ' +
+				partName + ' ' +
+				partName + '-bottom',
+				container, this._zoomOut, this);
+
+			map.on('zoomend zoomlevelschange', this._updateDisabled, this);
+
+			return container;
+		}
+	});
+	(new L.Control.ZoomFS()).addTo(map1);
+
+
 	// Border
 	var loire_atlantique_json = {
 		"type": "FeatureCollection",
@@ -47,7 +76,7 @@
 	var streets_custom_osm = L.tileLayer('http://{s}.tiles.cg44.makina-corpus.net/osm/{z}/{x}/{y}.png', {
 		opacity: 0.8,
 		maxZoom: 19,
-		attribution: "Makina Corpus / OpenStreetMap",
+		attribution: "<a href=\"makina-corpus.com\">Makina Corpus</a> / OpenStreetMap",
 		subdomains: 'abcdefgh'
 	});
 

@@ -14,8 +14,15 @@ $body-bgc: $white;
 
 $header-bgc: $green;
 $header-color: $dark-grey;
-$header-height: 30px;
+$header-height: 40px;
 
 $input-bgc: $white;
 $input-color: $dark-grey;
 $input-placeholder: $light-grey;
+
+$leftButtons-bgc: $black;
+$leftButtons-color: $green;
+$leftButtons-size: 60px;
+$leftButtons-checkbox-size: $leftButtons-size * 0.6; // 30px
+
+$bottomleftButtons-bgc: $black;

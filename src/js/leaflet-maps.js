@@ -4,7 +4,7 @@
 	L.Icon.Default.imagePath = "img/leaflet"
 
 	// Maps
-	global.map1 = L.map('map1', { minZoom : 10, maxZoom: 16 });
+	global.map1 = L.map('map1', { minZoom : 10, maxZoom: 16, zoomControl:false });
 	global.map2 = L.map('map2', { minZoom : 10, maxZoom: 16, zoomControl:false });
 
 
@@ -14,14 +14,14 @@
 	var ortho2012 = new L.FallbackTileLayer('http://{s}.tiles.cg44.makina-corpus.net/ortho-2012/{z}/{x}/{y}.jpg', {
 		continuousWorld: true,
 		tms: true,
-		attribution: "",
+		attribution: "Département de Loire-Atlantique",
 		subdomains: "abcdefgh",
 		errorTileUrl: "img/empty.png"
 	});
 	layerMap1.addLayer(ortho2012);
 
 	var streets_mapquest = L.tileLayer('http://otile{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png', {
-		attribution: '&copy; <a href="www.openstreetmap.org/copyright">OpenStreetMap</a>',
+		attribution: 'MapQuest / <a href="www.openstreetmap.org/copyright">OpenStreetMap</a>',
 		subdomains: '1234'
 	});
 	ortho2012.on('load', function() {
@@ -46,7 +46,12 @@
 		'ortho2004': 'http://{s}.tiles.cg44.makina-corpus.net/ortho-2004/{z}/{x}/{y}.jpg',
 		'ortho2009': 'http://{s}.tiles.cg44.makina-corpus.net/ortho-2009/{z}/{x}/{y}.jpg'
 	};
-	var older = new L.FallbackTileLayer('http://{s}.tiles.cg44.makina-corpus.net/ortho-2012/{z}/{x}/{y}.jpg', { tms: true, subdomains: 'abcdefgh' });
+	var older = new L.FallbackTileLayer('http://{s}.tiles.cg44.makina-corpus.net/ortho-2012/{z}/{x}/{y}.jpg', {
+		tms: true,
+		subdomains: 'abcdefgh',
+		attribution: "Département de Loire-Atlantique"
+
+	});
 	document.getElementById("compare-with").addEventListener("change", function(event){
 		if(orthoLayers['ortho' + event.target.value]) {
 			older.setUrl( orthoLayers['ortho' + event.target.value] );
